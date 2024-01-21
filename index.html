@@ -10,7 +10,7 @@
     <style>
         body {
             font-family: "Arial", sans-serif;
-            background-color: #f7f7f7;
+            background-color: #fed5ec;
             margin: 0;
             padding: 0;
         }
@@ -117,21 +117,28 @@
             width: 300px;
             margin: 0 auto;
         }
+
         .alerta-san-valentin .titulo {
             font-size: 20px;
             font-weight: bold;
             text-align: center;
         }
+
         .alerta-san-valentin .mensaje {
             font-size: 16px;
             text-align: center;
         }
+
         .alerta-san-valentin .corazon {
             width: 100px;
             height: 100px;
             background-color: #ff0000;
             border-radius: 50%;
             margin: 0 auto;
+        }
+        .mp3x{
+
+            display: none;
         }
     </style>
 
@@ -141,19 +148,33 @@
     <div class="container">
         <h1>¡Feliz día del amor!</h1>
 
-        <p>Querida Alexandra, eres la persona más especial en mi vida. Te amo con todo mi corazón.</p>
+        <p>Querida kalessy, eres la persona más especial en mi vida. Te amo con todo mi corazón.</p>
         <button class="btn" onclick="mostrarMensaje()">¡Haz clic aquí para un mensaje especial!</button><br><br><br>
         <div class="heart">
-            <img src="https://e0.pxfuel.com/wallpapers/811/463/desktop-wallpaper-beautiful-women-faces-woman-face.jpg" class="imgt">
+            <img src="https://images.alphacoders.com/658/658675.jpg" class="imgt">
         </div><br><br><br>
-        
+        <audio id="miAudio" autoplay>
+            <source src="mp3/love.mp3" type="audio/mp3">
+        </audio>
+
     </div>
     <script>
-        function mostrarMensaje() {//ThezeroAcademy
+        function mostrarMensaje() {
+            var audio = document.getElementById('miAudio');
+
+            // Verifica si la reproducción está en pausa o si es la primera vez que se presiona el botón
+            if (audio.paused) {
+                audio.play();
+            } else {
+                // Si ya está reproduciendo, detén y reinicia la reproducción
+                audio.pause();
+                audio.currentTime = 0;
+                audio.play();
+            }
             const alerta = document.createElement("div");
             alerta.classList.add("alerta-san-valentin");
 
-            alerta.innerHTML = `<h2 class="titulo">Eres el amor de mi vida, Alexandra</h2>
+            alerta.innerHTML = `<h2 class="titulo">Eres el amor de mi vida, kalessy</h2>
             <p class="mensaje">Te amo más que a nada en el mundo.</p>
             <center><img src="https://img.freepik.com/vector-gratis/plantilla-tarjeta-vector-dia-san-valentin-espacio-texto-forma-corazon-rojo-sobre-fondo-blanco_8130-1796.jpg" class="corazon" alt="Corazón"></center>`;
             // Muestra el elemento
